@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build: .
+    command: celery -A app worker --loglevel=info -B
+    volumes:
+      - .:/app
+    depends_on:
+      - rabbit
+  rabbit:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"

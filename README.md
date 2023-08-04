@@ -1,2 +1,7 @@
 # p_test
-Some python tests
+
+## Celery
+
+test 1:
+
+This simple scheduled app doesn't work, make it scheduled 
