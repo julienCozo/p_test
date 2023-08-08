@@ -1,0 +1,27 @@
+version: '3'
+services:
+  app:
+    container_name: mpeak_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+
+  db:
+    container_name: mpeak_db
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=meteo
+      - POSTGRES_PASSWORD=france
+      - POSTGRES_DB=mpeak
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
