@@ -10,7 +10,7 @@ app = Celery('tasks', broker='pyamqp://guest@rabbit//')
 @app.task
 def task_example(name):
 
-    logger.info(f"Task {name} succesful.")
+    logger.info(f"Task {name} succesfull.")
     return f"Task {name} done"
 
 app.conf.beat_schedule = {
